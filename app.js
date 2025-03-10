@@ -3,6 +3,7 @@
 let amigos = []
 let nomeAmigo;
 let listaAmigos = document.getElementById('listaAmigos')
+let resultado = document.getElementById('resultado')
 
 function adicionarAmigo(){
     nomeAmigo = document.getElementById('amigo').value
@@ -26,4 +27,17 @@ function exibirLista(){
         itemLista.textContent =  capitalizarPrimeiraLetra(amigo);
         listaAmigos.appendChild(itemLista);
     })
+}
+
+function sortearAmigo(){
+    let numeroAmigo
+    console.log(amigos)
+    if(amigos != '') {
+        let numeroAmigo = Math.floor(Math.random() * amigos.length);
+        listaAmigos.innerHTML = ''
+        resultado.innerHTML = `<p>O amigo secreto sorteado é: ${amigos[numeroAmigo]}</p>`
+        console.log(amigos[numeroAmigo])
+    }else{
+        alert('É necessário adicionar amigos para fazer o sorteio')
+    }
 }
